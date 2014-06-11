@@ -1,6 +1,5 @@
 class Contact
  
-  ## In-memory list of contacts
   @@contacts = []
  
   attr_accessor :name
@@ -12,20 +11,13 @@ class Contact
   end
  
   def to_s
-    puts "#{@name}, #{email}"
+     "#{@name}, #{email}"
   end
  
-  ## Class Methods
   class << self
     def create(name, email)
-      # TODO: Will initialize a contact as well as add it to the list of contacts
-      puts "What is the contact's first and last name?"
-      name = gets.chomp.downcase
-      puts "What is the contact's email?"
-      email = gets.chomp.downcase
       contact = Contact.new(name, email)
       @@contacts << contact
-      Application.new.run
     end
  
     def find(index)
@@ -33,9 +25,8 @@ class Contact
     end
  
     def all
-      # TODO: Return the list of contacts, as is
-      @@contacts.each.with_index { |x| puts x.to_s }
-      Application.new.run
+      @@contacts.each_with_index { |contact, index| puts "#{index}: #{contact.to_s}" }
+      # @@contacts.each_with_index { |contact, index| puts index contact }
     end
   end
  

@@ -7,9 +7,15 @@ class Application
       when 'quit'
         abort("Good-bye")
       when 'new'
-        Contact.create(:name, :email)
+        puts "What is the contact's first and last name?"
+        name = gets.chomp.downcase
+        puts "What is the contact's email?"
+        email = gets.chomp.downcase
+        Contact.create(name, email)
+        run
       when 'list'
         Contact.all
+        run
       else run
     end
   end
