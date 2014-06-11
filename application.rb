@@ -19,7 +19,7 @@ class Application
       when 'show id'
         puts "What ID number?"
         index = gets.chomp.to_i
-        puts Contact.show(index)
+        Contact.show(index)
         run
       else run
     end

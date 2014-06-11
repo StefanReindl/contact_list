@@ -22,7 +22,7 @@ class Contact
  
     def show(index)
       contact = @@contacts[index]
-      contact.to_s
+      puts "#{index}: (#{contact.to_s})"
     end
 
     def find(index)

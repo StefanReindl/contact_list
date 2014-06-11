@@ -4,9 +4,9 @@ require_relative 'contact'
 describe Contact do
  
   
-  # describe "initialization" do
+  describe "initialization" do
  
-  # end
+  end
  
   describe "#to_s" do
     it 'converts an instance of Contact to a string' do
@@ -24,6 +24,11 @@ describe Contact do
     end
   end
  
+ describe ".show" do
+    it 'should return a string from the array' do
+      expect(Contact.show(0)).to be_a(String)
+    end
+  end
   # # use . for class methods
   # describe ".find" do
  
