@@ -2,7 +2,16 @@ class Application
  
   def run
     show_main_menu
-    input = gets.chomp
+    input = gets.chomp.downcase
+    case input
+      when 'quit'
+        abort("Good-bye")
+      when 'new'
+        Contact.create(:name, :email)
+      when 'list'
+        Contact.all
+      else run
+    end
   end
  
   private
@@ -15,5 +24,6 @@ class Application
     puts " quit     - Exit Application"
     print "> "
   end
- 
+
+
 end
