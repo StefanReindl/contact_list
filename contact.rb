@@ -20,13 +20,17 @@ class Contact
       @@contacts << contact
     end
  
+    def show(index)
+      contact = @@contacts[index]
+      contact.to_s
+    end
+
     def find(index)
       # TODO: Will find and return contact by index
     end
  
     def all
-      @@contacts.each_with_index { |contact, index| puts "#{index}: #{contact.to_s}" }
-      # @@contacts.each_with_index { |contact, index| puts index contact }
+      @@contacts.each_with_index { |contact, index| puts "#{index}: (#{contact.to_s})" }
     end
   end
  

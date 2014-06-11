@@ -16,6 +16,11 @@ class Application
       when 'list'
         Contact.all
         run
+      when 'show id'
+        puts "What ID number?"
+        index = gets.chomp.to_i
+        puts Contact.show(index)
+        run
       else run
     end
   end
@@ -27,6 +32,7 @@ class Application
     puts "Welcome to the app. What's next?"
     puts " new      - Create a new contact"
     puts " list     - List all contacts"
+    puts " show id  - Show info for contact id number"
     puts " quit     - Exit Application"
     print "> "
   end
