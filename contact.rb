@@ -1,7 +1,7 @@
 class Contact
  
   ## In-memory list of contacts
-  @@contacts = ['Stefan Reindl', 'stefan.reindl@gmail.com']
+  @@contacts = []
  
   attr_accessor :name
   attr_accessor :email
@@ -12,7 +12,7 @@ class Contact
   end
  
   def to_s
-    # TODO: return string representation of Contact
+    puts "#{@name}, #{email}"
   end
  
   ## Class Methods
@@ -21,11 +21,10 @@ class Contact
       # TODO: Will initialize a contact as well as add it to the list of contacts
       puts "What is the contact's first and last name?"
       name = gets.chomp.downcase
-      @@contacts << name
       puts "What is the contact's email?"
       email = gets.chomp.downcase
-      @@contacts << email
-      Contact.new(name, email)
+      contact = Contact.new(name, email)
+      @@contacts << contact
       Application.new.run
     end
  
@@ -35,7 +34,7 @@ class Contact
  
     def all
       # TODO: Return the list of contacts, as is
-      @@contacts.each_with_index {|x| puts x }
+      @@contacts.each.with_index { |x| puts x.to_s }
       Application.new.run
     end
   end
